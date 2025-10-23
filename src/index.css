@@ -1,0 +1,83 @@
+nav {
+    background-color: darkolivegreen;
+    padding: 1rem 2rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Productos */
+
+#lista-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* ajusta automáticamente */
+    gap: 2rem;
+    margin-top: 2rem;
+    padding: 0 1rem;
+}
+
+#lista-productos li {
+    display: flex;
+    flex-direction: column; /* 👈 coloca los elementos uno debajo del otro */
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center; /* centra el texto dentro */
+}
+
+#lista-productos li .imagen-container {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#lista-productos li img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 👈 recorta y mantiene proporción */
+}
+
+#lista-productos li strong {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+#lista-productos li button {
+    margin-top: 0.5rem;
+    background-color: darkolivegreen;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#lista-productos li button:hover {
+    background-color: olivedrab;
+}
