@@ -5,7 +5,7 @@ import Servicios from './paginas/Servicios';
 import Navbar from './paginas/Navbar';
 import Productos from './paginas/Productos';
 import ProductoDetalle from './paginas/DetalleProductos';
-import Footer from './componentes/Footer'
+import Footer from './paginas/Footer'
 
 
 function App() {  
