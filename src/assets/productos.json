@@ -1,0 +1,84 @@
+{
+  "productos": [
+  {
+    "nombre": "Griflor Planta palmera artificial 110cm",
+    "descripcion": "Introducing the Eritrea-inspired Chair, blending slow style with local craftsmanship",
+    "avatar": "https://http2.mlstatic.com/D_NQ_NP_2X_944439-MLA95379449639_102025-F.webp",
+    "categoria": "Decoracion",
+    "precio": "27.500",
+    "id": "1"
+  },
+  {
+    "nombre": "Planta Artificial Con Maceta Hojas",
+    "descripcion": "The grey Bacon combines Cambodia aesthetics with Europium-based durability",
+    "avatar": "https://http2.mlstatic.com/D_NQ_NP_2X_802187-MLA95397060069_102025-F.webp",
+    "categoria": "Decoracion",
+    "precio": "695.05",
+    "id": "2"
+  },
+  {
+    "nombre": "Regadera Plástica 5 Litros",
+    "descripcion": "Bergstrom - Ziemann's most advanced Gloves technology increases zany capabilities",
+    "avatar": "https://http2.mlstatic.com/D_NQ_NP_2X_981541-MLA95834520971_102025-F.webp",
+    "categoria": "Herramientas",
+    "precio": "962.29",
+    "id": "3"
+  },
+  {
+    "nombre": "Terra Fértil Jardin de 50L",
+    "descripcion": "Ergonomic Bike made with Bronze for all-day ill support",
+    "avatar": "https://http2.mlstatic.com/D_NQ_NP_2X_886922-MLA94930219512_102025-F.webp",
+    "categoria": "Jardineria",
+    "precio": "11.50",
+    "id": "4"
+  },
+  {
+    "nombre": "Macetas Plasticas",
+    "descripcion": "Introducing the Costa Rica-inspired Computer, blending rapid style with local craftsmanship",
+    "avatar": "https://http2.mlstatic.com/D_NQ_NP_2X_621748-MLA91353575062_092025-F.webp",
+    "categoria": "Decoracion",
+    "precio": "937.24",
+    "id": "5"
+  },
+  {
+    "nombre": "Kit Herramientas Jardinería",
+    "descripcion": "Our turtle-friendly Soap ensures bustling comfort for your pets",
+    "avatar": "https://http2.mlstatic.com/D_NQ_NP_2X_836048-MLA70507295117_072023-F.webp",
+    "categoria": "Herramientas",
+    "precio": "691.00",
+    "id": "6"
+  },
+  {
+    "nombre": "Jabon potásico canela y neem 100cc ",
+    "descripcion": "New Shirt model with 60 GB RAM, 284 GB storage, and tepid features",
+    "avatar": "https://http2.mlstatic.com/D_NQ_NP_2X_787503-MLA94915834978_102025-F.webp",
+    "categoria": "Jardineria",
+    "precio": "26.12",
+    "id": "7"
+  },
+  {
+    "nombre": "Porta Macetas Colgante",
+    "descripcion": "New orchid Hat with ergonomic design for subdued comfort",
+    "avatar": "https://http2.mlstatic.com/D_NQ_NP_2X_969465-MLA95398985882_102025-F.webp",
+    "categoria": "Decoracion",
+    "precio": "939.36",
+    "id": "8"
+  },
+  {
+    "nombre": "Estaca Solar Efecto Llama",
+    "descripcion": "Our polar bear-friendly Soap ensures powerful comfort for your pets",
+    "avatar": "https://http2.mlstatic.com/D_NQ_NP_2X_767421-MLA95244079965_102025-F.webp",
+    "categoria": "Decoracion",
+    "precio": "950.34",
+    "id": "9"
+  },
+  {
+    "nombre": "Pala Estampada Ancha",
+    "descripcion": "The Versatile context-sensitive collaboration Towels offers reliable performance and illustrious design",
+    "avatar": "https://http2.mlstatic.com/D_NQ_NP_2X_903868-MLA94018510810_102025-F.webp",
+    "categoria": "Herramientas",
+    "precio": "292.99",
+    "id": "10"
+  }
+ ]
+}
