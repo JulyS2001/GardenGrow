@@ -1,10 +1,23 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { useAppContext } from '../context/AppContext'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuthContext } from '../context/AuthContext'
+import { useCartContext } from '../context/CartContext'
 
 function Navbar() {
 
-  const { isAuthenticated, usuario, carrito, cerrarSesion } = useAppContext();
+  const { usuario, isAuthenticated, cerrarSesion } = useAuthContext();
+  const { vaciarCarrito } = useCartContext();
+  const navigate = useNavigate();
+
+  const manejarCerrarSesion = () => {
+    navigate("/productos");
+
+    // TIempo dos segundos para asegurar la navegacion
+    setTimeout(() => {
+      vaciarCarrito();
+      cerrarSesion();
+    }, 200);
+  };
 
   return (
     <nav>
@@ -13,13 +26,17 @@ function Navbar() {
             <li><Link to="/servicios">Servicios</Link></li>
             <li><Link to="/productos">Productos</Link></li>
             <li >
-          {isAuthenticated ? (
-            <div >
+           {isAuthenticated ? (
+            <div>
               <span>Hola, {usuario.nombre}</span>
-              <span>Carrito: ({carrito.length})</span>
-              <button
-                onClick={cerrarSesion}
-              >
+             
+              {/* ENLACE DASHBOARD solo para admin */}
+              {usuario.nombre === "admin" && (
+                <Link to="/dashboard" style={{margin: '0 10px'}}>
+                  Dashboard
+                </Link>
+              )}
+              <button onClick={manejarCerrarSesion}>
                 Cerrar Sesión
               </button>
             </div>
