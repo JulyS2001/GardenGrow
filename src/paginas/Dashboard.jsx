@@ -1,15 +1,18 @@
 import React from 'react';
 import { useAuthContext } from '../context/AuthContext';
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Dashboard() {
   const { usuario, cerrarSesion } = useAuthContext();
-
+  const navigate = useNavigate();
 
   // Obtener el token actual
   const tokenActual = localStorage.getItem('authToken');
 
+  // Función para navegar al formulario de agregar producto
+  const manejarAgregarProducto = () => {
+    navigate('/formulario-producto');
+  };
 
   return (
     <div style={{ padding: '20px', minHeight: '60vh' }}>
@@ -17,7 +20,7 @@ export default function Dashboard() {
       <div style={{ background: '#f5f5f5', padding: '20px', borderRadius: '8px' }}>
         <p><strong>Sesión iniciada como: </strong> {usuario.nombre}</p>
        
-        {/* SECCIÓN DEL TOKEN */}
+        {/* TOKEN */}
         <div style={{
           background: '#e9ecef',
           padding: '10px',
@@ -30,24 +33,25 @@ export default function Dashboard() {
           <code>{tokenActual}</code>
         </div>
 
-
         {/* SECCIÓN DE ACCIONES ADMIN */}
         <div style={{ margin: '20px 0' }}>
           <h3>Acciones:</h3>
           <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '10px' }}>
-            <Link
-              to="/agregar-producto"
+            <button
+              onClick={manejarAgregarProducto}
               style={{
                 padding: '10px 20px',
                 background: '#28a745',
                 color: 'white',
                 textDecoration: 'none',
                 borderRadius: '4px',
+                border: 'none',
+                cursor: 'pointer',
                 display: 'inline-block'
               }}
             >
-              Agregar Nuevo Producto
-            </Link>
+              Agregar Productos
+            </button>
            
             <Link
               to="/productos"
@@ -60,7 +64,7 @@ export default function Dashboard() {
                 display: 'inline-block'
               }}
             >
-              Ver Todos los Productos
+              Ver / Editar / Eliminar Productos
             </Link>
           </div>
         </div>

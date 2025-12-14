@@ -44,6 +44,8 @@ export function AuthProvider({ children }) {
     iniciarSesion,
     cerrarSesion,
     isAuthenticated: !!usuario, // ← Propiedad computada
+    esAdmin: usuario?.nombre === 'admin', 
+
   };
 
   return (

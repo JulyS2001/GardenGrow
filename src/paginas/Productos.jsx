@@ -1,35 +1,24 @@
-import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import CarritoCompras from "./Carrito";
 import { useCartContext } from "../context/CartContext";
 import { useAuthContext } from "../context/AuthContext";
+import { useProducts } from "../context/ProductsContext";
 
 export default function Productos() {
-  const [productos, setProductos] = useState([]);
-  const [cargando, setCargando] = useState(true);
-  const [error, setError] = useState(null);
-
-  const navigate = useNavigate();
- 
-  // Contexto para el carrito
+  const { productos, cargando, error } = useProducts();
   const { agregarAlCarrito } = useCartContext();
-  const { usuario } = useAuthContext();
+  const { esAdmin } = useAuthContext();
+  const navigate = useNavigate();
 
-  const esAdmin = usuario?.nombre === "admin"; 
+  const manejarEliminar = (producto) => {
+    // Navegar a la página de confirmación de eliminación
+    navigate('/eliminar-producto', { state: { producto } });
+  };
 
-useEffect(() => {
-    fetch("https://68f69bb06b852b1d6f173af8.mockapi.io/api/productos")
-      .then((respuesta) => respuesta.json())
-      .then((datos) => {
-        setProductos(datos);
-        setCargando(false);
-      })
-      .catch((error) => {
-        {console.error("Error!,", error)}
-        setError("Hubo un problema al cargar los productos.");
-        setCargando(false);
-      });
-  }, []);
+  const manejarEditar = (producto) => {
+    // Navegar al formulario de edición
+    navigate('/formulario-producto', { state: { producto } });
+  };
 
   if (cargando) return <p>Cargando productos...</p>;
   if (error) return <p>{error}</p>;
@@ -38,40 +27,45 @@ useEffect(() => {
     <>
       <ul id="lista-productos">
         {productos.map((producto) => (
-          <li key={producto.id}>
-            <h2>{producto.nombre}</h2>
-            <br />
-            Descripción: {producto.descripcion}
-            <br />
-            Precio: ${producto.precio}
-            <br />
-            <img src={producto.avatar} alt={producto.nombre} width="80%" />
-            <Link to={`/productos/${producto.categoria || 'sin-categoria'}/${producto.id}`} state={{producto}}>
-              <button>Más detalles</button>
-            </Link>
-            <button onClick={() => agregarAlCarrito(producto)}>Comprar</button>
-            
-            {esAdmin && (
-              <div>
-                <hr/>
-                <button onClick={() => navigate("/editar-productos", {
-                  state: {producto: producto},
-                })
-              }
-              style={{
-                backgroundColor: "#28a745",
-                color: "White",
-                marginRight: "10px",
-              }}
-              >
-                Editar
-              </button>
-              </div>
-            )}
-          </li>
+          <ProductoItem
+            key={producto.id}
+            producto={producto}
+            esAdmin={esAdmin}
+            onEditar={() => manejarEditar(producto)}
+            onEliminar={() => manejarEliminar(producto)}
+            onAgregarCarrito={() => agregarAlCarrito(producto)}
+          />
         ))}
       </ul>
       <CarritoCompras />
     </>
   );
 }
+
+const ProductoItem = ({ producto, esAdmin, onEditar, onEliminar, onAgregarCarrito }) => (
+  <li>
+    <h2>{producto.nombre}</h2>
+    <p>Descripción: {producto.descripcion}</p>
+    <img src={producto.avatar} alt={producto.nombre} width="80%" />
+    <p><strong>Precio: ${producto.precio}</strong></p>
+   
+    <Link to={`/productos/${producto.id}`} state={{producto}}>
+      <button>Más detalles</button>
+    </Link>
+   
+    <button onClick={onAgregarCarrito}>Comprar</button>
+
+    {/* BOTONES ADMIN - Agregar contenedor */}
+    {esAdmin && (
+      <div className="btn-admin-container">
+        <hr/>
+        <button onClick={onEditar} className="btn-editar">
+          Editar
+        </button>
+        <button onClick={onEliminar} className="btn-eliminar">
+          Eliminar
+        </button>
+      </div>
+    )}
+  </li>
+);

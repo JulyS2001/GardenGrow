@@ -1,16 +1,13 @@
-import React, { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { useAuthContext } from '../context/AuthContext';
+import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useAuthContext } from "../context/AuthContext";
 
 export default function IniciarSesion() {
-
-  const {iniciarSesion} = useAuthContext();
-
+  const { iniciarSesion } = useAuthContext();
   const navigate = useNavigate();
   const ubicacion = useLocation();
- 
-  const [formulario, setFormulario] = useState({ nombre: '', email: '' });
 
+  const [formulario, setFormulario] = useState({ nombre: "", email: "" });
 
   const manejarEnvio = (e) => {
     e.preventDefault();
@@ -22,7 +19,7 @@ export default function IniciarSesion() {
       iniciarSesion("admin");
       navigate("/dashboard");
     }
-    // Lógica para usuarios normales - si NO es admin
+    // Lógica para usuarios normales - SOLO si NO es admin
     else if (
       formulario.nombre &&
       formulario.email &&
@@ -44,7 +41,7 @@ export default function IniciarSesion() {
       );
     }
   };
-  
+
   return (
     <div>
       <h1>Inicia sesión para continuar</h1>
