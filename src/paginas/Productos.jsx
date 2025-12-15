@@ -122,30 +122,57 @@ return (
       )}
     </div>
 
-    {/* PAGINACIÓN */}
-    {totalPaginas > 1 && (
-      <nav className="mt-5">
-        <ul className="pagination justify-content-center">
+  {/* PAGINACIÓN */}
+{totalPaginas > 1 && (
+  <nav className="mt-5">
+    <ul className="pagination justify-content-center align-items-center">
 
-          {Array.from({ length: totalPaginas }, (_, index) => (
-            <li
-              key={index}
-              className={`page-item ${
-                paginaActual === index + 1 ? "active" : ""
-              }`}
-            >
-              <button
-                className="page-link"
-                onClick={() => cambiarPagina(index + 1)}
-              >
-                {index + 1}
-              </button>
-            </li>
-          ))}
+      {/* BOTÓN ANTERIOR */}
+      <li className={`page-item ${paginaActual === 1 ? "disabled" : ""}`}>
+        <button
+          className="page-link"
+          onClick={() => cambiarPagina(paginaActual - 1)}
+          disabled={paginaActual === 1}
+        >
+          « Anterior
+        </button>
+      </li>
 
-        </ul>
-      </nav>
-    )}
+      {/* NÚMEROS DE PÁGINA */}
+      {Array.from({ length: totalPaginas }, (_, index) => (
+        <li
+          key={index}
+          className={`page-item ${
+            paginaActual === index + 1 ? "active" : ""
+          }`}
+        >
+          <button
+            className="page-link"
+            onClick={() => cambiarPagina(index + 1)}
+          >
+            {index + 1}
+          </button>
+        </li>
+      ))}
+
+      {/* BOTÓN SIGUIENTE */}
+      <li
+        className={`page-item ${
+          paginaActual === totalPaginas ? "disabled" : ""
+        }`}
+      >
+        <button
+          className="page-link"
+          onClick={() => cambiarPagina(paginaActual + 1)}
+          disabled={paginaActual === totalPaginas}
+        >
+          Siguiente »
+        </button>
+      </li>
+
+    </ul>
+  </nav>
+)}
 
   </div>
 );
