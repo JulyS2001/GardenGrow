@@ -6,85 +6,64 @@ export default function Dashboard() {
   const { usuario, cerrarSesion } = useAuthContext();
   const navigate = useNavigate();
 
-  // Obtener el token actual
   const tokenActual = localStorage.getItem('authToken');
 
-  // Función para navegar al formulario de agregar producto
   const manejarAgregarProducto = () => {
     navigate('/formulario-producto');
   };
 
   return (
-    <div style={{ padding: '20px', minHeight: '60vh' }}>
-      <h1>Dashboard Administrativo</h1>
-      <div style={{ background: '#f5f5f5', padding: '20px', borderRadius: '8px' }}>
-        <p><strong>Sesión iniciada como: </strong> {usuario.nombre}</p>
-       
-        {/* TOKEN */}
-        <div style={{
-          background: '#e9ecef',
-          padding: '10px',
-          borderRadius: '4px',
-          margin: '10px 0',
-          fontSize: '14px',
-        }}>
-          <strong>Token de autenticación:</strong>
-          <br />
-          <code>{tokenActual}</code>
+    <div className="container my-5">
+
+      <h1 className="mb-4 fw-bold">Dashboard Administrativo</h1>
+
+      <div className="card shadow">
+
+        <div className="card-header bg-dark text-white">
+          <h5 className="mb-0">Panel de Administración</h5>
         </div>
 
-        {/* SECCIÓN DE ACCIONES ADMIN */}
-        <div style={{ margin: '20px 0' }}>
-          <h3>Acciones:</h3>
-          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '10px' }}>
+        <div className="card-body">
+
+          <p className="mb-3">
+            <strong>Sesión iniciada como:</strong> {usuario.nombre}
+          </p>
+
+          {/* TOKEN */}
+          <div className="bg-light p-3 rounded mb-4">
+            <strong>Token de autenticación:</strong>
+            <div className="mt-2">
+              <code className="text-break">{tokenActual}</code>
+            </div>
+          </div>
+
+          {/* ACCIONES ADMIN */}
+          <h5 className="mb-3">Acciones</h5>
+
+          <div className="d-flex gap-2 flex-wrap mb-4">
             <button
               onClick={manejarAgregarProducto}
-              style={{
-                padding: '10px 20px',
-                background: '#28a745',
-                color: 'white',
-                textDecoration: 'none',
-                borderRadius: '4px',
-                border: 'none',
-                cursor: 'pointer',
-                display: 'inline-block'
-              }}
+              className="btn btn-success"
             >
-              Agregar Productos
+              Agregar Producto
             </button>
-           
-            <Link
-              to="/productos"
-              style={{
-                padding: '10px 20px',
-                background: '#17a2b8',
-                color: 'white',
-                textDecoration: 'none',
-                borderRadius: '4px',
-                display: 'inline-block'
-              }}
-            >
+
+            <Link to="/productos" className="btn btn-info text-white">
               Ver / Editar / Eliminar Productos
             </Link>
           </div>
+
+          <hr />
+
+          {/* CERRAR SESIÓN */}
+          <button
+            onClick={cerrarSesion}
+            className="btn btn-outline-danger"
+          >
+            Cerrar sesión
+          </button>
+
         </div>
-        <hr></hr>
-       
-        {/* BOTÓN CERRAR SESIÓN */}
-        <button
-          onClick={cerrarSesion}
-          style={{
-            padding: '10px 20px',
-            background: '#dc3545',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: 'pointer',
-            marginTop: '10px'
-          }}
-        >
-          Cerrar sesión
-        </button>
       </div>
     </div>
   );
