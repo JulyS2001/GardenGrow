@@ -1,16 +1,38 @@
-# React + Vite
+🌱 Tienda Online de Jardinería
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto front-end desarrollado con React + Vite, orientado a la venta de productos de jardinería. La aplicación ofrece una interfaz moderna, rápida y responsiva, pensada para simular el funcionamiento de un e-commerce real.
 
-Currently, two official plugins are available:
+🚀 Tecnologías utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+⚛️ React – Biblioteca principal para la construcción de la interfaz
 
-## React Compiler
+⚡ Vite – Herramienta de desarrollo y bundler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🎨 Bootstrap – Estilos y diseño responsivo
 
-## Expanding the ESLint configuration
+🔀 React Router DOM – Navegación entre vistas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🧠 Context API – Manejo de estado global
+
+-------------------------------------------------------------------------------------------------------------------
+
+📦 Funcionalidades principales
+
+🛒 Listado de productos de jardinería
+
+🔍 Vista de detalle de cada producto
+
+➕ Agregar productos al carrito
+
+🧾 Gestión del carrito de compras
+
+🔐 Registro e inicio de sesión de usuarios
+
+👤 Manejo de autenticación
+
+🛠️ Panel de administración (alta, baja y modificación de productos)
+
+📱 Diseño responsivo
+
+-------------------------------------------------------------------------------------------------------------------
+
