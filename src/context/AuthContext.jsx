@@ -8,6 +8,8 @@ export function AuthProvider({ children }) {
   const [usuario, setUsuario] = useState(null);
   const [cargando, setCargando] = useState(true);
 
+  const API_USUARIOS = "https://68f69bb06b852b1d6f173af8.mockapi.io/api/usuarios";
+
   // Verificar token al cargar la aplicación
   useEffect(() => {
     const token = localStorage.getItem("authToken");
@@ -22,6 +24,25 @@ export function AuthProvider({ children }) {
 
     setCargando(false);
   }, []);
+
+  // Registrar usuario
+const registrarUsuario = async (nuevoUsuario) => {
+  const response = await fetch(API_USUARIOS, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      ...nuevoUsuario,
+      rol: "user",
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error("Error al registrar usuario");
+  }
+
+  return await response.json();
+};
+
 
   // Función para iniciar sesión
   const iniciarSesion = (username, emailIngresado) => {
@@ -44,6 +65,7 @@ export function AuthProvider({ children }) {
 
   const value = {
     usuario,
+    registrarUsuario,
     iniciarSesion,
     cerrarSesion,
     isAuthenticated: !!usuario, // ← Propiedad computada

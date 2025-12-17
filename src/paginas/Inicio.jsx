@@ -15,7 +15,7 @@ function Inicio() {
       <section className="bg-dark text-light py-5">
         <div className="container text-center">
           <h1 className="display-4 fw-bold mb-3">
-            GardenGrow
+            GardenGrow🌱
           </h1>
           <p className="lead mb-4">
             Todo lo que necesitás para hacer crecer tu jardín 
