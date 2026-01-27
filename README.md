@@ -14,6 +14,8 @@ Proyecto front-end desarrollado con React + Vite, orientado a la venta de produc
 
 🧠 Context API – Manejo de estado global
 
+⌛ MockAPI - Simulacion de una ApiRestful y base de datos para productos y usuarios.
+
 -------------------------------------------------------------------------------------------------------------------
 
 📦 Funcionalidades principales
