@@ -38,5 +38,11 @@ Proyecto front-end desarrollado con React + Vite, orientado a la venta de produc
 
 -------------------------------------------------------------------------------------------------------------------
 
-Link de la pagina de prueba: https://garden-grow-xi.vercel.app/
+◉ Link de la pagina de prueba: https://garden-grow-xi.vercel.app/
+
+-------------------------------------------------------------------------------------------------------------------
+
+Imagen del inicio de la pagina:
+
+<img width="1761" height="918" alt="gardengrow" src="https://github.com/user-attachments/assets/13841b37-a9f1-445d-8fa9-fcfeba9b67e5" />
 
